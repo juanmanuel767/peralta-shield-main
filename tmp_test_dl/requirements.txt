@@ -1,0 +1,9 @@
+flask
+flask-cors
+psutil
+requests
+yara-python
+rich
+pillow
+pystray
+ollama
