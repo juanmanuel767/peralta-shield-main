@@ -68,6 +68,17 @@
   --animate-slide-up: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   --animate-float: float 6s ease-in-out infinite;
   --animate-glow-pulse: glow-pulse 2s ease-in-out infinite;
+  --animate-marquee-slow: marquee 80s linear infinite;
+  --animate-marquee-reverse-slow: marquee-reverse 80s linear infinite;
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes marquee-reverse {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
 
   @keyframes fade-in {
     from { opacity: 0; }
@@ -174,5 +185,9 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+  }
+
+  .pause {
+    animation-play-state: paused !important;
   }
 }
