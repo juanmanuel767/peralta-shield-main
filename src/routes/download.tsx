@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Layout } from "@/components/peralta/Layout";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { Monitor, Apple, Terminal, ChevronRight, CheckCircle2, Download as DownloadIcon, Info, Lock, Copy, Star, MessageSquare, UserPlus } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 export const Route = createFileRoute("/download")({
   head: () => ({
@@ -60,7 +62,7 @@ function DownloadPage() {
         </div>
 
         {/* Gate: User must be registered */}
-        {!loading && !user ? (
+        {!authLoading && !user ? (
           <div className="max-w-2xl mx-auto animate-fade-in">
             <div className="relative p-1 rounded-[2.5rem] bg-gradient-to-r from-primary via-accent to-primary bg-[length:200%_100%] animate-gradient-x">
               <div className="bg-background rounded-[2.4rem] p-10 md:p-16 text-center">
